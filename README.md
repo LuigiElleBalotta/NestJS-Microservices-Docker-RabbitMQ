@@ -13,7 +13,7 @@ chmod a+x filename.sh
 
 If you want to run those commands you **MUST** be inside scripts folder.
 
-## Requirements
+## Requirements
 
 - Docker
 - RabbitMQ (use the command: `docker run -d --network docker-test-1 --hostname rabbitmq -p 5672:5672 -p 15672:15672 --name rabbitmq rabbitmq:3-management`
