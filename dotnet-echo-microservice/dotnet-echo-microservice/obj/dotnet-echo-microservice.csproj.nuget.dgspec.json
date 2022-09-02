@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "restore": {
+    "/Volumes/Extreme SSD/TheBBsWay/NoWork/DockerTestMicroservices/dotnet-echo-microservice/dotnet-echo-microservice/dotnet-echo-microservice.csproj": {}
+  },
+  "projects": {
+    "/Volumes/Extreme SSD/TheBBsWay/NoWork/DockerTestMicroservices/dotnet-echo-microservice/dotnet-echo-microservice/dotnet-echo-microservice.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Volumes/Extreme SSD/TheBBsWay/NoWork/DockerTestMicroservices/dotnet-echo-microservice/dotnet-echo-microservice/dotnet-echo-microservice.csproj",
+        "projectName": "dotnet-echo-microservice",
+        "projectPath": "/Volumes/Extreme SSD/TheBBsWay/NoWork/DockerTestMicroservices/dotnet-echo-microservice/dotnet-echo-microservice/dotnet-echo-microservice.csproj",
+        "packagesPath": "/Users/luigibalotta/.nuget/packages/",
+        "outputPath": "/Volumes/Extreme SSD/TheBBsWay/NoWork/DockerTestMicroservices/dotnet-echo-microservice/dotnet-echo-microservice/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/luigibalotta/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

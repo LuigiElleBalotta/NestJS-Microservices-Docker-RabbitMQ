@@ -8,6 +8,18 @@ services:
       - '3007:3007'
     env_file: ./math-service/.env.local
     image: math-service
+  dotnet-echo-service:
+    build:
+      context: ./dotnet-echo-microservice
+      dockerfile: 'Dockerfile'
+    ports:
+      - '7162:7162'
+      - '5020:5020'
+    image: dotnet-echo-service
+    environment:
+      - ASPNETCORE_URLS=https://+:7162;http://+:5020
+      - Logging__Loglevel__Default=Debug
+      - Logging__Loglevel__Microsoft.AspNetCore=Debug
   microservices-consumer:
     build:
       context: ./microservices-consumer

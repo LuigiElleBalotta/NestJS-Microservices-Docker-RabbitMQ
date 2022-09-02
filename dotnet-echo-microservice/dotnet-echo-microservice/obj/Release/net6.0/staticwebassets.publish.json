@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "7MwwVHUBrWQCrEHCjxFooI2TdlWJPB1Or07vRjux584=",
+  "Source": "dotnet-echo-microservice",
+  "BasePath": "_content/dotnet-echo-microservice",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

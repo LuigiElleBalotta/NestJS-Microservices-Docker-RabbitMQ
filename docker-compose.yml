@@ -5,6 +5,11 @@ services:
     restart: always
     depends_on: 
       - rabbitmq
+  dotnet-echo-service:
+    container_name: dotnet-echo-service
+    restart: always
+    depends_on: 
+      - rabbitmq
   microservices-consumer:
     container_name: microservices-consumer
     restart: always
