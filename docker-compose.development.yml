@@ -1,0 +1,10 @@
+version: '3.2'
+services:
+  math-service: 
+    ports:
+      - '3070:3007'
+    env_file: ./math-service/.env.development
+  microservices-consumer:
+    ports:
+      - '3060:3006'
+    env_file: ./microservices-consumer/.env.development

@@ -1,0 +1,34 @@
+version: '3.2'
+services:
+  math-service:
+    container_name: math-service
+    build:
+      context: ./math-service
+      dockerfile: 'Dockerfile'
+    restart: always
+    depends_on: 
+      - rabbitmq
+  microservices-consumer:
+    container_name: microservices-consumer
+    build:
+      context: ./microservices-consumer
+      dockerfile: 'Dockerfile'
+    restart: always
+    depends_on: 
+      - rabbitmq
+      - math-service
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: bbsway
+      RABBITMQ_DEFAULT_PASS: th&bbsw4y
+      RABBITMQ_DEFAULT_VHOST: /
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+networks:
+  docker-test-1:
+    driver: bridge
+    external: true
