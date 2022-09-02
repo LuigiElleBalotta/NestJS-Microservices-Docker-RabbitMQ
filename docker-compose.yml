@@ -2,17 +2,11 @@ version: '3.2'
 services:
   math-service:
     container_name: math-service
-    build:
-      context: ./math-service
-      dockerfile: 'Dockerfile'
     restart: always
     depends_on: 
       - rabbitmq
   microservices-consumer:
     container_name: microservices-consumer
-    build:
-      context: ./microservices-consumer
-      dockerfile: 'Dockerfile'
     restart: always
     depends_on: 
       - rabbitmq

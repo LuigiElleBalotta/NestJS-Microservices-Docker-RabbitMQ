@@ -4,7 +4,9 @@ services:
     ports:
       - '3070:3007'
     env_file: ./math-service/.env.development
+    image: DOCKER_HUB_PULL_COMMAND
   microservices-consumer:
     ports:
       - '3060:3006'
     env_file: ./microservices-consumer/.env.development
+    image: DOCKER_HUB_PULL_COMMAND
