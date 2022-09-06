@@ -138,11 +138,13 @@ public class AMQPConsumer
                     
                     var body = ea.Body.ToArray();
 
+                    BasePayload<dynamic> payload = null;
+
                     try
                     {
                         var message = Encoding.UTF8.GetString(body);
 
-                        BasePayload<dynamic> payload = JsonConvert.DeserializeObject<BasePayload<dynamic>>(message);
+                        payload = JsonConvert.DeserializeObject<BasePayload<dynamic>>(message);
 
                         // _props.CorrelationId = payload.id;
 
@@ -161,12 +163,13 @@ public class AMQPConsumer
                     }
                     finally
                     {
-                        // var outputChannel = conn.CreateModel();
-                        // outputChannel.QueueDeclare("echo-service", false, false, false);
-                        var responseCustom = new TestResponse();
-                        responseCustom.text = "Ciao a te!";
-                        var responseBytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(responseCustom));
-                        channel.BasicPublish("", ea.RoutingKey, null, responseBytes);
+                        var replyProps = this.channel.CreateBasicProperties();
+                        replyProps.CorrelationId = payload.id;
+                        // props.ReplyTo = "echo-service-reply";
+                        
+                        // var responseBytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(responseCustom));
+                        
+                        channel.BasicPublish("", ea.BasicProperties.ReplyTo, replyProps, ea.Body);
                         // channel.BasicAck(ea.DeliveryTag, false);
                     }
                 };

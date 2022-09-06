@@ -35,7 +35,8 @@ import configuration from "./Core/Configuration/configuration";
                   queue: process.env.MS_DOTNET_ECHO_SERVICE_QUEUE,
                   queueOptions: {
                       durable: false,
-                  }
+                  },
+                  // replyQueue: 'echo-service-reply'
               }
           }
       ])
