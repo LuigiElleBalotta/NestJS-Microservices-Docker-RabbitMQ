@@ -15,5 +15,8 @@ export default () => ({
 
     mathService: {
         queueName: process.env.MS_MATH_SERVICE_QUEUE || 'math_queue'
+    },
+    dotnetEchoService: {
+        queueName: process.env.MS_DOTNET_ECHO_SERVICE_QUEUE || 'echo-service'
     }
 })

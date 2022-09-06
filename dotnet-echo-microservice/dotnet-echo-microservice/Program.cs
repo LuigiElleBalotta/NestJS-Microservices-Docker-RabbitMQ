@@ -1,4 +1,7 @@
 using System.Text;
+using dotnet_echo_microservice.Models;
+using dotnet_echo_microservice.Utility;
+using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -11,27 +14,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 // RabbitMQ
-/*
-ConnectionFactory factory = new ConnectionFactory();
-factory.UserName = "bbsway";
-factory.Password = "th&bbsw4y";
-factory.VirtualHost = "/";
-factory.HostName = "localhost:5672";
+var client = new AMQPConsumer("bbsway", "th&bbsw4y", "",
+                        new List<string>() { "echo-service" },
+                        new List<string>() { "" },
+                        new List<EventingBasicConsumer>());
 
-IConnection conn = factory.CreateConnection();
-
-IModel channel = conn.CreateModel();
-channel.QueueDeclare("echo-service", false, false, false );
-var consumer = new EventingBasicConsumer(channel);
-consumer.Received += (model, ea) =>
-{
-    var body = ea.Body.ToArray();
-    var message = Encoding.UTF8.GetString(body);
-    Console.WriteLine(" [x] Received {0}", message );
-};
-channel.BasicConsume("echo-service", true, consumer);
-*/ 
+client.Listen();
 
 var app = builder.Build();
 
@@ -49,3 +39,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
